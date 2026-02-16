@@ -170,3 +170,16 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## System Requirements
+
+| Requirement | Minimum | Recommended |
+|-------------|---------|-------------|
+| **OS** | Windows 10 / macOS 12 / Ubuntu 20.04 | Windows 11 / macOS 14 / Ubuntu 22.04 |
+| **Python** | 3.10 | 3.11+ |
+| **RAM** | 4 GB | 8 GB |
+| **Storage** | 500 MB | 1 GB |
+| **Microphone** | Any USB/built-in mic | Noise-cancelling headset |
+| **Internet** | Required (API calls) | Stable broadband |
+| **FFmpeg** | v4.0+ | Latest |
+| **PortAudio** | v19+ | Latest |
