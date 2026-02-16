@@ -170,3 +170,15 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Code of Conduct
+
+This project follows the [Contributor Covenant](https://www.contributor-covenant.org/) Code of Conduct.
+
+By participating, you are expected to:
+- Use welcoming and inclusive language
+- Be respectful of differing viewpoints and experiences
+- Gracefully accept constructive criticism
+- Focus on what is best for the community
+
+Please report unacceptable behavior via [GitHub Issues](https://github.com/Shahriyar-Khan27/AI-Powered-Medical-Assistant-Agent/issues).
