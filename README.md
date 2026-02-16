@@ -170,3 +170,13 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Known Issues
+
+| Issue | Status | Workaround |
+|-------|--------|------------|
+| `llama-3.2-90b-vision-preview` model deprecated | Resolved | Switched to `llama-4-scout-17b-16e-instruct` |
+| gTTS output sounds robotic | Expected | Use ElevenLabs for more natural voice quality |
+| Microphone not working in Docker | Known | Use audio file upload instead of live recording |
+| Long recordings may timeout | Known | Set `phrase_time_limit` parameter in `record_audio()` |
+| Windows audio playback may fail with special characters in path | Known | Use paths without spaces or special characters |
