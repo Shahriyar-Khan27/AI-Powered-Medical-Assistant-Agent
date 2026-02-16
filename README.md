@@ -170,3 +170,30 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Docker Setup (Optional)
+
+You can run this project using Docker:
+
+```dockerfile
+FROM python:3.11-slim
+
+RUN apt-get update && apt-get install -y ffmpeg portaudio19-dev && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 7860
+CMD ["python", "src/app.py"]
+```
+
+Build and run:
+```bash
+docker build -t medical-assistant .
+docker run -p 7860:7860 --env-file .env medical-assistant
+```
+
+> Note: Microphone input requires additional Docker audio passthrough configuration.
