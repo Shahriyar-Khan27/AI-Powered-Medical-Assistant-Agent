@@ -2,6 +2,17 @@
 
 An AI-powered medical assistant that analyzes medical images using voice interaction. Patients describe their symptoms via voice, the AI examines uploaded medical images using a multimodal LLM, and responds with a spoken diagnosis.
 
+## Demo
+
+> Upload a medical image and speak your symptoms — the AI doctor will analyze and respond with voice.
+
+| Step | Description |
+|------|-------------|
+| 1 | Patient records voice query via microphone |
+| 2 | AI transcribes speech using Whisper |
+| 3 | Groq Vision LLM analyzes the uploaded medical image |
+| 4 | Doctor responds with spoken diagnosis via ElevenLabs |
+
 ## How It Works
 
 ```
