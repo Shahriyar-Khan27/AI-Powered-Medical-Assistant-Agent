@@ -170,3 +170,23 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Deployment
+
+### Deploying on Hugging Face Spaces
+
+1. Create a new Space on [huggingface.co/spaces](https://huggingface.co/spaces)
+2. Select **Gradio** as the SDK
+3. Push your code to the Space repository
+4. Add your API keys as **Secrets** in the Space settings:
+   - `GROQ_API_KEY`
+   - `ELEVEN_API_KEY`
+
+### Deploying on Railway / Render
+
+1. Connect your GitHub repository
+2. Set environment variables in the dashboard
+3. Set the start command: `python src/app.py`
+4. Deploy and access via the provided URL
+
+> Note: Cloud deployments may not support microphone input. Consider adding a file upload option for audio.
