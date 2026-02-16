@@ -170,3 +170,14 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| `PyAudio` fails to install | Install PortAudio first: `brew install portaudio` (macOS) or `sudo apt install portaudio19-dev` (Linux) |
+| `ffmpeg not found` error | Ensure FFmpeg is installed and added to your system PATH |
+| Microphone not detected | Check your system audio input settings and permissions |
+| Groq API returns 401 | Verify your `GROQ_API_KEY` is set correctly in `.env` |
+| ElevenLabs voice not playing | Check `ELEVEN_API_KEY` and ensure you have API credits remaining |
+| Gradio UI won't load | Make sure port 7860 is not in use: `lsof -i :7860` |
