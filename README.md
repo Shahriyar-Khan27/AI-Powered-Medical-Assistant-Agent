@@ -170,3 +170,11 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Performance Tips
+
+- **Use ElevenLabs Turbo v2** model for faster TTS response times
+- **Groq API** provides ultra-low latency inference — typical response in <1 second
+- **Reduce image size** before uploading — resize large images to 1024px max width for faster encoding
+- **Set `phrase_time_limit`** in `record_audio()` to limit recording duration and avoid long waits
+- **Use wired headphones** to reduce ambient noise and improve Whisper transcription accuracy
