@@ -1,5 +1,11 @@
 # AI-Powered Medical Assistant
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-LLM-orange)
+![Gradio](https://img.shields.io/badge/Gradio-UI-yellow?logo=gradio)
+![ElevenLabs](https://img.shields.io/badge/ElevenLabs-TTS-purple)
+![License](https://img.shields.io/badge/License-Educational-green)
+
 An AI-powered medical assistant that analyzes medical images using voice interaction. Patients describe their symptoms via voice, the AI examines uploaded medical images using a multimodal LLM, and responds with a spoken diagnosis.
 
 ## How It Works
