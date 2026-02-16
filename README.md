@@ -170,3 +170,11 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Contact & Support
+
+- **Author**: Shahriyar Khan
+- **GitHub**: [@Shahriyar-Khan27](https://github.com/Shahriyar-Khan27)
+- **Issues**: [Open an issue](https://github.com/Shahriyar-Khan27/AI-Powered-Medical-Assistant-Agent/issues)
+
+If you find this project helpful, please give it a star on GitHub!
