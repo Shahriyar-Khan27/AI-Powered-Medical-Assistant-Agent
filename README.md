@@ -170,3 +170,12 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Security
+
+- **Never commit your `.env` file** — it contains sensitive API keys
+- The `.gitignore` is configured to exclude `.env` files automatically
+- Use `.env.example` as a template and create your own `.env` locally
+- If you accidentally commit API keys, **revoke and regenerate them immediately**
+- All API calls are made over HTTPS to Groq and ElevenLabs servers
+- No patient data is stored — all processing happens in-memory during the session
