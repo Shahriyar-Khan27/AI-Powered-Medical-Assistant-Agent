@@ -1,154 +1,172 @@
-# Project Setup Guide
+# AI-Powered Medical Assistant
 
-This guide provides step-by-step instructions to set up your project environment, including the installation of FFmpeg and PortAudio across macOS, Linux, and Windows, as well as setting up a Python virtual environment using Pipenv, pip, or conda.
+An AI-powered medical assistant that analyzes medical images using voice interaction. Patients describe their symptoms via voice, the AI examines uploaded medical images using a multimodal LLM, and responds with a spoken diagnosis.
 
-## Table of Contents
-
-1. [Installing FFmpeg and PortAudio](#installing-ffmpeg-and-portaudio)
-   - [macOS](#macos)
-   - [Linux](#linux)
-   - [Windows](#windows)
-2. [Setting Up a Python Virtual Environment](#setting-up-a-python-virtual-environment)
-   - [Using Pipenv](#using-pipenv)
-   - [Using pip and venv](#using-pip-and-venv)
-   - [Using Conda](#using-conda)
-3. [Running the application](#project-phases-and-python-commands)
-
-## Installing FFmpeg and PortAudio
-
-### macOS
-
-1. **Install Homebrew** (if not already installed):
-
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
-2. **Install FFmpeg and PortAudio:**
-
-   ```bash
-   brew install ffmpeg portaudio
-   ```
-
-
-### Linux
-For Debian-based distributions (e.g., Ubuntu):
-
-1. **Update the package list**
+## How It Works
 
 ```
+Patient speaks       -->  Speech-to-Text (Whisper)  -->  Text query
+                                                            |
+Medical image        -->  Image encoding (base64)   --------+
+                                                            |
+                                                     Groq Vision LLM
+                                                            |
+                                                     Doctor's response
+                                                            |
+                                                     Text-to-Speech (ElevenLabs / gTTS)
+                                                            |
+                                                     Audio playback
+```
+
+## Project Structure
+
+```
+AI-Powered-Medical-Assistant/
+├── src/
+│   ├── __init__.py
+│   ├── brain.py              # Image analysis with Groq multimodal LLM
+│   ├── stt.py                # Speech-to-Text (mic recording + Whisper)
+│   ├── tts.py                # Text-to-Speech (gTTS + ElevenLabs)
+│   └── app.py                # Gradio web UI entry point
+│
+├── assets/
+│   └── samples/
+│       ├── images/            # Sample medical images for testing
+│       └── audio/             # Sample audio files for testing
+│
+├── output/                    # Generated audio responses
+├── .env.example               # API key template
+├── .gitignore
+├── requirements.txt
+├── Pipfile
+├── Pipfile.lock
+└── README.md
+```
+
+## Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| Vision LLM | Groq (Llama 4 Scout) |
+| Speech-to-Text | Groq Whisper Large V3 |
+| Text-to-Speech | ElevenLabs / gTTS |
+| Web UI | Gradio |
+| Audio Processing | FFmpeg, PortAudio, PyAudio |
+
+## Prerequisites
+
+- Python 3.10+
+- [Groq API Key](https://console.groq.com/)
+- [ElevenLabs API Key](https://elevenlabs.io/) (optional, gTTS works as fallback)
+- FFmpeg and PortAudio installed on your system
+
+### Installing FFmpeg & PortAudio
+
+<details>
+<summary><strong>macOS</strong></summary>
+
+```bash
+brew install ffmpeg portaudio
+```
+</details>
+
+<details>
+<summary><strong>Linux (Debian/Ubuntu)</strong></summary>
+
+```bash
 sudo apt update
-```
-
-2. **Install FFmpeg and PortAudio:**
-```
 sudo apt install ffmpeg portaudio19-dev
 ```
+</details>
 
-### Windows
+<details>
+<summary><strong>Windows</strong></summary>
 
-#### Download FFmpeg:
-1. Visit the official FFmpeg download page: [FFmpeg Downloads](https://ffmpeg.org/download.html)
-2. Navigate to the Windows builds section and download the latest static build.
+**FFmpeg:**
+1. Download from [FFmpeg Downloads](https://ffmpeg.org/download.html)
+2. Extract to a folder (e.g., `C:\ffmpeg`)
+3. Add `C:\ffmpeg\bin` to your system PATH
 
-#### Extract and Set Up FFmpeg:
-1. Extract the downloaded ZIP file to a folder (e.g., `C:\ffmpeg`).
-2. Add the `bin` directory to your system's PATH:
-   - Search for "Environment Variables" in the Start menu.
-   - Click on "Edit the system environment variables."
-   - In the System Properties window, click on "Environment Variables."
-   - Under "System variables," select the "Path" variable and click "Edit."
-   - Click "New" and add the path to the `bin` directory (e.g., `C:\ffmpeg\bin`).
-   - Click "OK" to apply the changes.
+**PortAudio:**
+1. Download from [PortAudio Downloads](http://www.portaudio.com/download.html)
+2. Follow the installation instructions on the website
+</details>
 
-#### Install PortAudio:
-1. Download the PortAudio binaries from the official website: [PortAudio Downloads](http://www.portaudio.com/download.html)
-2. Follow the installation instructions provided on the website.
+## Getting Started
 
----
+### 1. Clone the repository
 
-## Setting Up a Python Virtual Environment
-
-### Using Pipenv
-1. **Install Pipenv (if not already installed):**  
+```bash
+git clone https://github.com/Shahriyar-Khan27/AI-Powered-Medical-Assistant-.git
+cd AI-Powered-Medical-Assistant-
 ```
+
+### 2. Set up environment variables
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and add your API keys:
+
+```
+GROQ_API_KEY=your_groq_api_key_here
+ELEVEN_API_KEY=your_elevenlabs_api_key_here
+```
+
+### 3. Install dependencies
+
+**Using pip:**
+```bash
+python -m venv venv
+source venv/bin/activate        # macOS/Linux
+venv\Scripts\activate           # Windows
+pip install -r requirements.txt
+```
+
+**Using Pipenv:**
+```bash
 pip install pipenv
-```
-
-2. **Install Dependencies with Pipenv:** 
-
-```
 pipenv install
-```
-
-3. **Activate the Virtual Environment:** 
-
-```
 pipenv shell
 ```
 
----
-
-### Using `pip` and `venv`
-#### Create a Virtual Environment:
-```
-python -m venv venv
-```
-
-#### Activate the Virtual Environment:
-**macOS/Linux:**
-```
-source venv/bin/activate
-```
-
-**Windows:**
-```
-venv\Scripts\activate
-```
-
-#### Install Dependencies:
-```
+**Using Conda:**
+```bash
+conda create --name medical-ai python=3.11
+conda activate medical-ai
 pip install -r requirements.txt
 ```
 
----
+### 4. Run the application
 
-### Using Conda
-#### Create a Conda Environment:
-```
-conda create --name myenv python=3.11
+```bash
+python src/app.py
 ```
 
-#### Activate the Conda Environment:
-```
-conda activate myenv
-```
+Open [http://127.0.0.1:7860](http://127.0.0.1:7860) in your browser.
 
-#### Install Dependencies:
-```
-pip install -r requirements.txt
-```
+## Usage
 
+1. Click the microphone button and describe your symptoms
+2. Upload a medical image (skin condition, rash, etc.)
+3. Click **Submit**
+4. The AI doctor will analyze the image, and you'll receive:
+   - Your transcribed speech
+   - A text diagnosis
+   - A spoken audio response
 
-# Project Phases and Python Commands
+## Architecture
 
-## Phase 1: Brain of the doctor
-```
-python brain_of_the_doctor.py
-```
+The project is built in 4 modular phases:
 
-## Phase 2: Voice of the patient
-```
-python voice_of_the_patient.py
-```
+| Phase | Module | Description |
+|-------|--------|-------------|
+| 1 | `src/brain.py` | Encodes images and queries the Groq vision model for medical analysis |
+| 2 | `src/stt.py` | Records audio from the microphone and transcribes it using Whisper |
+| 3 | `src/tts.py` | Converts the doctor's text response into speech with autoplay |
+| 4 | `src/app.py` | Ties everything together in a Gradio web interface |
 
-## Phase 3: Voice of the doctor
-```
-python voice_of_the_doctor.py
-```
+## License
 
-## Phase 4: Setup Gradio UI
-```
-python gradio_app.py
-```
-
+This project is for **educational purposes only**. It is not intended to provide real medical advice.
