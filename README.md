@@ -170,3 +170,23 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## API Reference
+
+### `src/brain.py`
+| Function | Parameters | Returns |
+|----------|-----------|---------|
+| `encode_image(image_path)` | `image_path: str` | Base64 encoded string |
+| `analyze_image_with_query(query, model, encoded_image)` | `query: str, model: str, encoded_image: str` | Doctor's text response |
+
+### `src/stt.py`
+| Function | Parameters | Returns |
+|----------|-----------|---------|
+| `record_audio(file_path, timeout, phrase_time_limit)` | `file_path: str, timeout: int, phrase_time_limit: int` | Saves MP3 file |
+| `transcribe_with_groq(stt_model, audio_filepath, GROQ_API_KEY)` | `stt_model: str, audio_filepath: str, GROQ_API_KEY: str` | Transcribed text |
+
+### `src/tts.py`
+| Function | Parameters | Returns |
+|----------|-----------|---------|
+| `text_to_speech_with_gtts(input_text, output_filepath)` | `input_text: str, output_filepath: str` | Saves and plays MP3 |
+| `text_to_speech_with_elevenlabs(input_text, output_filepath)` | `input_text: str, output_filepath: str` | Saves and plays MP3 |
