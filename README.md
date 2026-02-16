@@ -170,3 +170,14 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `GROQ_API_KEY` | Yes | API key for Groq cloud (used for Whisper STT and Llama Vision) |
+| `ELEVEN_API_KEY` | No | API key for ElevenLabs TTS (optional, falls back to gTTS if not set) |
+
+Get your API keys:
+- **Groq**: Sign up at [console.groq.com](https://console.groq.com/) (free tier available)
+- **ElevenLabs**: Sign up at [elevenlabs.io](https://elevenlabs.io/) (free tier with limited characters)
