@@ -170,3 +170,15 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Roadmap
+
+- [x] Phase 1: Medical image analysis with Groq Vision LLM
+- [x] Phase 2: Patient voice input with Whisper STT
+- [x] Phase 3: Doctor voice output with ElevenLabs/gTTS
+- [x] Phase 4: Gradio web UI integration
+- [ ] Add support for multi-turn conversations
+- [ ] Add patient history tracking
+- [ ] Support for additional medical image types (X-rays, MRI)
+- [ ] Add multilingual support for voice input/output
+- [ ] Implement a mobile-friendly UI
