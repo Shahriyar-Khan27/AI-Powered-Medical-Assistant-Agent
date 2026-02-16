@@ -1,6 +1,14 @@
 # AI-Powered Medical Assistant
 
 An AI-powered medical assistant that analyzes medical images using voice interaction. Patients describe their symptoms via voice, the AI examines uploaded medical images using a multimodal LLM, and responds with a spoken diagnosis.
+n## Features
+
+- Voice-based patient interaction with real-time speech recognition
+- Medical image analysis using multimodal AI (Groq Llama 4 Scout)
+- AI-generated spoken diagnosis with natural voice output
+- Support for multiple TTS engines (ElevenLabs premium + gTTS free)
+- Cross-platform audio playback (macOS, Windows, Linux)
+- Clean Gradio web interface accessible via browser
 
 ## How It Works
 
