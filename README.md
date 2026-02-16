@@ -170,3 +170,13 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Changelog
+
+### v1.0.0 (Initial Release)
+- Medical image analysis using Groq Llama 4 Scout vision model
+- Voice-based patient input with Whisper Large V3 transcription
+- Text-to-speech doctor response via ElevenLabs and gTTS
+- Gradio web UI with microphone and image upload
+- Cross-platform audio playback support (macOS, Windows, Linux)
+- Project restructured with proper `src/` layout
