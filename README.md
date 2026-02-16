@@ -170,3 +170,24 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Testing
+
+### Test individual modules
+
+```bash
+# Test image analysis
+python -c "from src.brain import encode_image; print(encode_image('assets/samples/images/acne.jpg')[:50])"
+
+# Test speech-to-text transcription
+python -c "from src.stt import transcribe_with_groq; print(transcribe_with_groq('whisper-large-v3', 'assets/samples/audio/patient_voice_test.mp3', 'YOUR_KEY'))"
+
+# Test text-to-speech
+python -c "from src.tts import text_to_speech_with_gtts; text_to_speech_with_gtts('Hello doctor', 'output/test.mp3')"
+```
+
+### Run the full app
+```bash
+python src/app.py
+# Open http://127.0.0.1:7860 and test with sample images from assets/samples/images/
+```
