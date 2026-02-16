@@ -170,3 +170,12 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## Acknowledgments
+
+- [Groq](https://groq.com/) - Ultra-fast LLM inference for vision and speech models
+- [Meta Llama 4 Scout](https://llama.meta.com/) - Multimodal vision language model
+- [OpenAI Whisper](https://openai.com/research/whisper) - Robust speech recognition model
+- [ElevenLabs](https://elevenlabs.io/) - High-quality AI voice generation
+- [gTTS](https://github.com/pndurette/gTTS) - Free Google Text-to-Speech wrapper
+- [Gradio](https://gradio.app/) - Easy-to-use ML web interface framework
