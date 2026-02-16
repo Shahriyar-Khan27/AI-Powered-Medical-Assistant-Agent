@@ -170,3 +170,17 @@ The project is built in 4 modular phases:
 ## License
 
 This project is for **educational purposes only**. It is not intended to provide real medical advice.
+
+## FAQ
+
+**Q: Is this a real medical tool?**
+A: No. This project is for educational and learning purposes only. Always consult a real doctor for medical advice.
+
+**Q: Can I use gTTS instead of ElevenLabs?**
+A: Yes. The app supports both. gTTS is free, while ElevenLabs provides higher quality voice output. Update the function call in `src/app.py` to switch.
+
+**Q: What image formats are supported?**
+A: JPEG, PNG, and WebP images are supported for medical image analysis.
+
+**Q: Do I need a GPU to run this?**
+A: No. All AI processing happens via Groq cloud APIs, so no local GPU is required.
